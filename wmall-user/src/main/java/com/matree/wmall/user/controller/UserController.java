@@ -1,11 +1,10 @@
 package com.matree.wmall.user.controller;
 
-import com.matree.wmall.user.bean.UmsMember;
-import com.matree.wmall.user.bean.UmsMemberReceiveAddress;
-import com.matree.wmall.user.service.UserService;
+import com.matree.wmall.service.UserService;
+import com.matree.wmall.bean.UmsMember;
+import com.matree.wmall.bean.UmsMemberReceiveAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,7 +24,7 @@ public class UserController {
 
     @RequestMapping("/getReceive")
     @ResponseBody
-    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(@RequestBody  Integer memberId){
+    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(Integer memberId){
         List<UmsMemberReceiveAddress> receiveAddress = userService.getReceiveAddressByMemberId(memberId);
         return receiveAddress;
     }

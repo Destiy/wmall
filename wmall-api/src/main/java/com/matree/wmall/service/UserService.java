@@ -1,7 +1,7 @@
-package com.matree.wmall.user.service;
+package com.matree.wmall.service;
 
-import com.matree.wmall.user.bean.UmsMember;
-import com.matree.wmall.user.bean.UmsMemberReceiveAddress;
+import com.matree.wmall.bean.UmsMember;
+import com.matree.wmall.bean.UmsMemberReceiveAddress;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.matree.wmall.user.mapper;
 
-import com.matree.wmall.user.bean.UmsMemberReceiveAddress;
+import com.matree.wmall.bean.UmsMemberReceiveAddress;
 import tk.mybatis.mapper.common.Mapper;
 
 /**

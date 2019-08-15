@@ -1,4 +1,4 @@
-package com.matree.wmall.user.bean;
+package com.matree.wmall.bean;
 
 import lombok.Data;
 

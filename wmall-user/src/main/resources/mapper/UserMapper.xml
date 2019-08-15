@@ -4,7 +4,14 @@
 
 <mapper namespace="com.matree.wmall.user.mapper.UserMapper">
 
-    <select id="selectAllUser" resultType="com.matree.wmall.user.bean.UmsMember">
-        SELECT * FROM ums_member
+    <sql id="Base_Cloumn_List">
+        id, member_level_id, username, password, nickname, phone, status, create_time, icon,
+        gender, birthday, city, job, personalized_signature, source_type, integration,
+        growth, luckey_count, history_integration
+  </sql>
+    <select id="selectAllUser" resultType="com.matree.wmall.bean.UmsMember">
+        SELECT 
+            <include refid="Base_Cloumn_List" />
+         FROM ums_member
     </select>
 </mapper>

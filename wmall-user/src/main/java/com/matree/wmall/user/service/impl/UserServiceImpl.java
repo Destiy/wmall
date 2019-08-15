@@ -1,10 +1,10 @@
 package com.matree.wmall.user.service.impl;
 
-import com.matree.wmall.user.bean.UmsMember;
-import com.matree.wmall.user.bean.UmsMemberReceiveAddress;
+import com.matree.wmall.bean.UmsMember;
+import com.matree.wmall.bean.UmsMemberReceiveAddress;
+import com.matree.wmall.service.UserService;
 import com.matree.wmall.user.mapper.UmsMemberReceiveAddressMapper;
 import com.matree.wmall.user.mapper.UserMapper;
-import com.matree.wmall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +13,10 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Autowired(required = false)
     UserMapper userMapper;
 
-    @Autowired
+    @Autowired(required = false)
     UmsMemberReceiveAddressMapper umsMemberReceiveAddressMapper;
 
     @Override
@@ -29,9 +29,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(Integer memberId) {
         UmsMemberReceiveAddress address = new UmsMemberReceiveAddress();
-        address.setId(String.valueOf(memberId));
+        address.setMemberId(String.valueOf(memberId));
 
-        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(address);
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.select(address);
         return umsMemberReceiveAddresses;
     }
 

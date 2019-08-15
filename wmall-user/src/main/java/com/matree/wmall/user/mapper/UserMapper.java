@@ -1,6 +1,6 @@
 package com.matree.wmall.user.mapper;
 
-import com.matree.wmall.user.bean.UmsMember;
+import com.matree.wmall.bean.UmsMember;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
