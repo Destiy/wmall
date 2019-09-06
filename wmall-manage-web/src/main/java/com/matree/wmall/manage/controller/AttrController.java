@@ -1,12 +1,10 @@
 package com.matree.wmall.manage.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.matree.wmall.bean.PmsBaseAttrInfo;
 import com.matree.wmall.service.AttrService;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +18,14 @@ public class AttrController {
 
     @Reference
     AttrService attrService;
+
+    @ResponseBody
+    @RequestMapping("/saveAttrInfo")
+    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
+        Integer attrId = attrService.saveAttrInfo(pmsBaseAttrInfo);
+        attrService.saveAttrValue(pmsBaseAttrInfo, attrId);
+        return "success";
+    }
 
     @ResponseBody
     @GetMapping("/attrInfoList")
