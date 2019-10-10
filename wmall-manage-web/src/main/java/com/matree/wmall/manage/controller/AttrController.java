@@ -2,6 +2,7 @@ package com.matree.wmall.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.matree.wmall.bean.PmsBaseAttrInfo;
+import com.matree.wmall.bean.PmsBaseAttrValue;
 import com.matree.wmall.service.AttrService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,8 @@ public class AttrController {
     @ResponseBody
     @RequestMapping("/saveAttrInfo")
     public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
-        Integer attrId = attrService.saveAttrInfo(pmsBaseAttrInfo);
-        attrService.saveAttrValue(pmsBaseAttrInfo, attrId);
+        String result = attrService.saveAttrInfo(pmsBaseAttrInfo);
+//        attrService.saveAttrValue(pmsBaseAttrInfo, attrId);
         return "success";
     }
 
@@ -32,6 +33,13 @@ public class AttrController {
     public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
         List<PmsBaseAttrInfo> attrInfos = attrService.getAttrInfoList(catalog3Id);
         return attrInfos;
+    }
+
+    @ResponseBody
+    @PostMapping("/getAttrValueList")
+    public List<PmsBaseAttrValue> getAttrValueList(String attrId){
+        List<PmsBaseAttrValue> pmsBaseAttrValueList = attrService.getAttrValueList(attrId);
+        return pmsBaseAttrValueList;
     }
 }
 
