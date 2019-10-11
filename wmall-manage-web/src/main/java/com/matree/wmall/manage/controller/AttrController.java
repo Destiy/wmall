@@ -3,6 +3,7 @@ package com.matree.wmall.manage.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.matree.wmall.bean.PmsBaseAttrInfo;
 import com.matree.wmall.bean.PmsBaseAttrValue;
+import com.matree.wmall.bean.PmsBaseSaleAttr;
 import com.matree.wmall.service.AttrService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +41,13 @@ public class AttrController {
     public List<PmsBaseAttrValue> getAttrValueList(String attrId){
         List<PmsBaseAttrValue> pmsBaseAttrValueList = attrService.getAttrValueList(attrId);
         return pmsBaseAttrValueList;
+    }
+
+    @ResponseBody
+    @PostMapping("/baseSaleAttrList")
+    public List<PmsBaseSaleAttr> baseSaleAttrList(){
+        List<PmsBaseSaleAttr> pmsBaseSaleAttrList = attrService.getBaseSaleAttrList();
+        return pmsBaseSaleAttrList;
     }
 }
 

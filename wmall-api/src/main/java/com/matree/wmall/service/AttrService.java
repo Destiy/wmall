@@ -2,6 +2,7 @@ package com.matree.wmall.service;
 
 import com.matree.wmall.bean.PmsBaseAttrInfo;
 import com.matree.wmall.bean.PmsBaseAttrValue;
+import com.matree.wmall.bean.PmsBaseSaleAttr;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public interface AttrService {
     String saveAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo);
 
     List<PmsBaseAttrValue> getAttrValueList(String attrId);
+
+    List<PmsBaseSaleAttr> getBaseSaleAttrList();
 
 //    void saveAttrValue(PmsBaseAttrInfo pmsBaseAttrInfo, Integer attrId);
 }
