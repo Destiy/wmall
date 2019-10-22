@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SpuService {
     List<PmsProductInfo> getSpuList(String catalog3Id);
+
+    String saveSpuInfo(PmsProductInfo pmsProductInfo);
 }
