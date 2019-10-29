@@ -1,7 +1,9 @@
 package com.matree.wmall.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.matree.wmall.bean.PmsProductImage;
 import com.matree.wmall.bean.PmsProductInfo;
+import com.matree.wmall.bean.PmsProductSaleAttr;
 import com.matree.wmall.manage.util.PmsUploadUtil;
 import com.matree.wmall.service.SpuService;
 import org.springframework.stereotype.Controller;
@@ -39,5 +41,19 @@ public class SpuController {
         String imgUrl = PmsUploadUtil.uploadImage(multipartFile);
         System.out.println(imgUrl);
         return imgUrl;
+    }
+
+    @ResponseBody
+    @RequestMapping("/spuSaleAttrList")
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId){
+        List<PmsProductSaleAttr> pmsProductSaleAttrs = spuService.spuSaleAttrList(spuId);
+        return pmsProductSaleAttrs;
+    }
+
+    @ResponseBody
+    @RequestMapping("/spuImageList")
+    public List<PmsProductImage> spuImageList(String spuId){
+        List<PmsProductImage> pmsProductImages = spuService.getSpuImageList(spuId);
+        return  pmsProductImages;
     }
 }
